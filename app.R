@@ -71,7 +71,7 @@ server <- function(input, output, session)
     
     # print frequency of incidents displayed in browser window  
     output$frequency <- renderUI({
-      df <- selected() %>% 
+      df <- dataInBounds() %>% 
         filter(category %in% input$category)
       if (nrow(df) == 0){
         return(NULL)
